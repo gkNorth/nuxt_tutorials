@@ -1,47 +1,47 @@
 export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
+  mode: 'universal',
   head: {
-    title: 'nuxt-dev-to-clone',
-    htmlAttrs: {
-      lang: 'en'
-    },
+    title: 'Dev.to clone with NuxtJS',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Building a dev.to clone with Nuxt.js and new fetch() hook'
+      }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap'
+      }
     ]
   },
-
-  // Global CSS: https://go.nuxtjs.dev/config-css
+  loading: false, // disable loading bar
   css: [
+    '~/assets/styles/reset.scss',
+    '~/assets/styles/base.scss',
+    '~/assets/styles/highlight.scss',
+    '~/assets/styles/app.scss'
   ],
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    '@nuxtjs/svg', 
-    '@nuxtjs/style-resources'
-  ],
-  
   styleResources: {
     scss: ['~/assets/styles/tokens.scss']
   },
-
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
+  plugins: [
+    '~/plugins/vue-placeholders.js',
+    '~/plugins/vue-observe-visibility.client.js'
   ],
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
+  buildModules: [
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/svg',
+    '@nuxtjs/style-resources'
+  ],
+  modules: ['nuxt-ackee'],
+  ackee: {
+    server: 'https://ackee.nuxtjs.com',
+    domainId: '6336379b-8d3e-4069-9d2e-897be6a7ed4e'
   }
 }

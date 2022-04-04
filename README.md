@@ -29,3 +29,12 @@ createdとmountedの間で実行
 - Vuexを使わずアクセスできる
 - keep-alive 等でコンポーネントキャッシュできる
 - $fetchState.pending : placeholderなどに活用できる
+
+### .envファイル
+
+process.env.*** で利用できる
+
+注意事項
+- asyncDataで使う際、ページ遷移時にundefinedになる
+- nuxt.config.jsでenv設定をしておくことで対応可能
+- 参考 : microcms-nuxt-jamstack-blog
